@@ -51,25 +51,34 @@ const messageEl = document.getElementById('#message')
 
 /*-------------------------------- Functions --------------------------------*/
 
-function init() {
-    board = [null, null, null, null, null,null, null, null,null ];
- 
-    console.log(board);
-}
-
 init()
 
-function handleClick() {
-    console.log('click');
+function init() {
+    board = [null, null, null, null, null,null, null, null,null ];
+    turn = [1];
+    winner = false
+    tie = false
+    render()
+    console.log(init)
+}
+
+
+function render() {
+    // updateBoard()
+    // updatemessage()
 }
 
 
 
-// function render() {
-//     updateBoard()
-//     updatemessage()
 
+
+// function handleClick() {
+//     console.log('click');
 // }
+
+
+
+
 
 
 
