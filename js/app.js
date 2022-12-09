@@ -1,28 +1,5 @@
 
 
-/*-------------------------------- Constants --------------------------------*/
-
-
-
-/*---------------------------- Variables (state) ----------------------------*/
-
-let board, turn, wimner, tie 
- 
-
-
-/*------------------------ Cached Element References ------------------------*/
-
-
-
-/*----------------------------- Event Listeners -----------------------------*/
-
-
-
-/*-------------------------------- Functions --------------------------------*/
-
-
-
-
 // 1) Define the required variables used to track the state of the game
 
 // 2) Store cached element references
@@ -37,3 +14,82 @@ let board, turn, wimner, tie
 // 6) Handle a player clicking a square with a `handleClick` function
 
 // 7) Create Reset functionality
+
+
+
+
+
+
+
+
+
+/*-------------------------------- Constants --------------------------------*/
+
+
+
+
+
+
+/*---------------------------- Variables (state) ----------------------------*/
+
+let board 
+let turn 
+let winner 
+let tie
+ 
+
+
+/*------------------------ Cached Element References ------------------------*/
+
+const squareEls = document.querySelectorAll('.sqr')
+const messageEl = document.getElementById('#message')
+
+
+/*----------------------------- Event Listeners -----------------------------*/
+
+
+
+/*-------------------------------- Functions --------------------------------*/
+
+function init() {
+    board = [null, null, null, null, null,null, null, null,null ];
+ 
+    console.log(board);
+}
+
+init()
+
+function handleClick() {
+    console.log('click');
+}
+
+
+
+// function render() {
+//     updateBoard()
+//     updatemessage()
+
+// }
+
+
+
+
+// function updateBoard() {
+//     let theBoard = []
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
