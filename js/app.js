@@ -53,7 +53,7 @@ let tie
 
 const squareEls = document.querySelectorAll('.sqr')
 const messageEl = document.getElementById('#message')
-
+const resetBtn = document.getElementById('#reset')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -65,7 +65,7 @@ init()
 
 function init() {
     board = [null, null, null, null, null,null, null, null,null ];
-    turn = 1;
+    turn = 1
     winner = false
     tie = false
     render()
@@ -75,14 +75,17 @@ function init() {
 
 function render() {
     updateBoard()
-    updatemessage()
+    updateMessage()
 }
 
 
 
 
 function updateBoard() {
-    board.Foreach
+    // board.forEach((element, idx) => {
+    //     if (element === 1)
+
+    // }) 
     
 
 }
@@ -91,20 +94,33 @@ function updateBoard() {
 
 function updateMessage() {
     if (winner === false && tie === false)
-    render  {
-    } else if (winner === false && tie === true)
-    render {
-    } else ()
-    render 
+         msg = {
+    else if (winner === false && tie === true) }
+        msg = 'You Tied' {
+    else 
+        msg = 
+
 }
 
-
+}
 function handleClick(evt) {
 
 }
 
 
 
+function checkForTie() {
+
+}
+
+
+function checkForWinner() {
+
+}
+
+function switchPlayerTurn() {
+
+}
 
 
 
@@ -116,6 +132,12 @@ function handleClick(evt) {
 
 
 
+
+
+
+
+
+c
 
 
 
