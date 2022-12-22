@@ -26,13 +26,13 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
-    [0, 1, 2]
-    [3, 4, 5]
-    [6, 7, 8]
-    [0, 3, 6]
-    [1, 4, 7]
-    [2, 5, 8]
-    [0, 4, 8]
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
     [2, 4, 6]
 
 ]
@@ -42,29 +42,31 @@ const winningCombos = [
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let board 
-let turn 
-let winner 
+let board
+let turn
+let winner
 let tie
- 
+
 
 
 /*------------------------ Cached Element References ------------------------*/
 
 const squareEls = document.querySelectorAll('.sqr')
-const messageEl = document.getElementById('#message')
-const resetBtn = document.getElementById('#reset')
+
+const messageEl = document.getElementById('message')
+
+// const resetBtn = document.getElementById('#reset')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-
+// squareEls.addEventListener("click",)
 
 /*-------------------------------- Functions --------------------------------*/
 
 init()
 
 function init() {
-    board = [null, null, null, null, null,null, null, null,null ];
+    board = [null, null, null, null, null, null, null, null, null];
     turn = 1
     winner = false
     tie = false
@@ -75,50 +77,37 @@ function init() {
 
 function render() {
     updateBoard()
-    updateMessage()
+    updateMessage
+
 }
 
 
 
 
 function updateBoard() {
-    // board.forEach((element, idx) => {
-    //     if (element === 1)
-
-    // }) 
-    
-
+    board.forEach((element, idx) => {
+        if (element === 1) {
+            squareEls[idx].textContent = "X"
+        } else if (element === -1) {
+            squareEls[idx].textContent = "O"
+        } else {
+            squareEls[idx].textContent = ""
+        }
+    })
 }
 
 
 
 function updateMessage() {
-    if (winner === false && tie === false)
-         msg = {
-    else if (winner === false && tie === true) }
-        msg = 'You Tied' {
-    else 
-        msg = 
+    if (winner === false && tie === false) {
+        messageEl.textContent = "x : o turn"
+    } else if (winner === false && tie === true) {
+        messageEl.textContent = "Yall's Tied"
+    } else {
+        messageEl.textContent = "Winner,Winner, Chicken Dinner"
 
-}
+    }
 
-}
-function handleClick(evt) {
-
-}
-
-
-
-function checkForTie() {
-
-}
-
-
-function checkForWinner() {
-
-}
-
-function switchPlayerTurn() {
 
 }
 
@@ -126,6 +115,24 @@ function switchPlayerTurn() {
 
 
 
+// function handleClick(evt) {
+
+// }
+
+
+
+// function checkForTie() {
+
+// }
+
+
+// function checkForWinner() {
+
+// }
+
+// function switchPlayerTurn() {
+
+// }
 
 
 
@@ -137,7 +144,11 @@ function switchPlayerTurn() {
 
 
 
-c
+
+
+
+
+
 
 
 
