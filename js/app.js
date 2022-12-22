@@ -55,11 +55,20 @@ const squareEls = document.querySelectorAll('.sqr')
 
 const messageEl = document.getElementById('message')
 
+const gameBoard = document.querySelector('.board')
+
 // const resetBtn = document.getElementById('#reset')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
-// squareEls.addEventListener("click",)
+
+squareEls.forEach((element) => {
+    element.addEventListener("click", (event) => {
+        handleClick(event)
+    })
+})
+
+
 
 /*-------------------------------- Functions --------------------------------*/
 
@@ -77,7 +86,7 @@ function init() {
 
 function render() {
     updateBoard()
-    updateMessage
+    updateMessage()
 
 }
 
@@ -100,11 +109,17 @@ function updateBoard() {
 
 function updateMessage() {
     if (winner === false && tie === false) {
-        messageEl.textContent = "x : o turn"
+
+        if(turn === 1){
+            messageEl.textContent = "X's" +" turn"
+        }else{
+            messageEl.textContent = "O's" +" turn"
+        }
+
     } else if (winner === false && tie === true) {
         messageEl.textContent = "Yall's Tied"
     } else {
-        messageEl.textContent = "Winner,Winner, Chicken Dinner"
+        messageEl.textContent = "Winner,Winner, Chicken Dinner!"
 
     }
 
@@ -115,15 +130,34 @@ function updateMessage() {
 
 
 
-// function handleClick(evt) {
+[1,2,3,4] //length is 4, but the index ends at 3
+function handleClick(evt) {
+    const sqIdx = parseInt(evt.target.id.slice(evt.target.id.length - 1))
+    console.log(evt.target.id[evt.target.id.length - 1] )
+    console.log(sqIdx)
+    if(board[sqIdx] || winner === true){ // if 1 or -1 its true, if null false
+        return;
+    }
 
-// }
 
 
 
-// function checkForTie() {
+}
 
-// }
+
+function placePiece(index){
+    board[index] = turn
+}
+
+
+
+function checkForTie() {
+    for(let i = 0;  i < board.length; i++){
+        if(board[i] === null){
+            return;
+        }
+    }
+}
 
 
 // function checkForWinner() {
