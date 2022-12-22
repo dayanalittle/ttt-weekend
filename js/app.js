@@ -26,7 +26,7 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
-    [0, 1, 2],
+    [0, 1, 2], 
     [3, 4, 5],
     [6, 7, 8],
     [0, 3, 6],
@@ -139,9 +139,12 @@ function handleClick(evt) {
         return;
     }
 
+    placePiece(sqIdx)
+    checkForTie()
+    checkForWinner()
+    switchPlayerTurn()
 
-
-
+    render()
 }
 
 
@@ -157,16 +160,30 @@ function checkForTie() {
             return;
         }
     }
+    tie = true
 }
 
 
-// function checkForWinner() {
+function checkForWinner() {
+    for(let i = 0; i < winningCombos.length; i++){
+        let total = 0
+        winningCombos[i].forEach(element => {
+            total += board[element]
+        })
+        total = Math.abs(total)
+        if(total === 3){
+            winner = true
+        }
+    }
+}
 
-// }
+function switchPlayerTurn() {
+    if(winner === true){
+        return;
+    }
 
-// function switchPlayerTurn() {
-
-// }
+    turn *= -1
+}
 
 
 
