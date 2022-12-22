@@ -26,7 +26,7 @@
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
-    [0, 1, 2], 
+    [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
     [0, 3, 6],
@@ -57,17 +57,15 @@ const messageEl = document.getElementById('message')
 
 const gameBoard = document.querySelector('.board')
 
-// const resetBtn = document.getElementById('#reset')
+const resetBtnEl = document.querySelector('#resetBtn')
 
 /*----------------------------- Event Listeners -----------------------------*/
 
 
 squareEls.forEach((element) => {
-    element.addEventListener("click", (event) => {
-        handleClick(event)
-    })
+    element.addEventListener("click", handleClick)
 })
-
+resetBtnEl.addEventListener('click', init)
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -110,10 +108,10 @@ function updateBoard() {
 function updateMessage() {
     if (winner === false && tie === false) {
 
-        if(turn === 1){
-            messageEl.textContent = "X's" +" turn"
-        }else{
-            messageEl.textContent = "O's" +" turn"
+        if (turn === 1) {
+            messageEl.textContent = "X's" + " turn"
+        } else {
+            messageEl.textContent = "O's" + " turn"
         }
 
     } else if (winner === false && tie === true) {
@@ -130,12 +128,12 @@ function updateMessage() {
 
 
 
-[1,2,3,4] //length is 4, but the index ends at 3
+
 function handleClick(evt) {
     const sqIdx = parseInt(evt.target.id.slice(evt.target.id.length - 1))
-    console.log(evt.target.id[evt.target.id.length - 1] )
+    console.log(evt.target.id[evt.target.id.length - 1])
     console.log(sqIdx)
-    if(board[sqIdx] || winner === true){ // if 1 or -1 its true, if null false
+    if (board[sqIdx] || winner === true) {
         return;
     }
 
@@ -148,15 +146,15 @@ function handleClick(evt) {
 }
 
 
-function placePiece(index){
+function placePiece(index) {
     board[index] = turn
 }
 
 
 
 function checkForTie() {
-    for(let i = 0;  i < board.length; i++){
-        if(board[i] === null){
+    for (let i = 0; i < board.length; i++) {
+        if (board[i] === null) {
             return;
         }
     }
@@ -165,25 +163,27 @@ function checkForTie() {
 
 
 function checkForWinner() {
-    for(let i = 0; i < winningCombos.length; i++){
+    for (let i = 0; i < winningCombos.length; i++) {
         let total = 0
         winningCombos[i].forEach(element => {
             total += board[element]
         })
         total = Math.abs(total)
-        if(total === 3){
+        if (total === 3) {
             winner = true
         }
     }
 }
 
 function switchPlayerTurn() {
-    if(winner === true){
+    if (winner === true) {
         return;
     }
 
     turn *= -1
 }
+
+
 
 
 
